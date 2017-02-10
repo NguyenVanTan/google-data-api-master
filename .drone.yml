@@ -1,4 +1,8 @@
-image: maven:3-jdk-8
-
-build:
-  script: "mvn clean install"
+pipeline:
+  build:
+    image: 3.3.9-jdk-8
+    pull: true
+    commands:
+      - mvn clean
+      - mvn install
+      - mvn deploy
