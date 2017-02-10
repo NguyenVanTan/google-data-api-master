@@ -3,6 +3,4 @@ pipeline:
     image: maven:3-jdk-8
     pull: true
     commands:
-      - mvn clean
-      - mvn install
-      - mvn deploy
+      - mvn clean install
