@@ -1,9 +1,12 @@
-pipeline:
-  build:
-    image: maven:3-jdk-8
-    mount:
-      - repository
+cache:
+  mount:
+    - /drone/.m2
+build:
+  main:
+    image: maven:3-jdk-8-onbuild
     commands:
-     - if [ -d "/drone/repository" ]; then cp -a /drone/repository /usr/share/maven/ref ; fi
-     - mvn -Ddocker.skip=true clean install
-     - cp -a /usr/share/maven/ref/repository /drone
+      - mvn clean install -Pcoverage -Dmaven.repo.local=/drone/.m2
+      - mvn package -Dmaven.repo.local=/drone/.m2
+      - mvn test -Dmaven.repo.local=/drone/.m2
+      - echo "Build has been completed."
+debug: true
