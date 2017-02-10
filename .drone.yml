@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: maven: 3.3.9-jdk-8
+    image: thomasf/drone-mvn
     commands:
       - mvn clean
       - mvn install
