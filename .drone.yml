@@ -4,6 +4,3 @@ pipeline:
     commands:
       - mvn clean
       - mvn install
-services:
-  database:
-    image: mysql: 5.7
