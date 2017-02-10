@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: thomasf/drone-mvn
+    image: isuper/java-oracle:jdk_latest
     commands:
       - mvn clean
       - mvn install
