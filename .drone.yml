@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: isuper/java-oracle:jdk_latest
+    image: 3.3.9-jdk-8
     commands:
       - mvn clean
       - mvn install
