@@ -9,7 +9,7 @@ build:
       - echo "Build has been completed."
 services:
    mysql:
-    image: mysql:5.6.27
+    image: mysql
     environment:
       - MYSQL_DATATABASE =GOOGLE_API
       - MYSQL_USER = root
