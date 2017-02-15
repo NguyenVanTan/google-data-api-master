@@ -6,7 +6,11 @@ build:
     image: maven:3-jdk-8-onbuild
     commands:
       - mvn clean install -Pcoverage -Dmaven.repo.local=/drone/.m2
-      - mvn package -Dmaven.repo.local=/drone/.m2
-      - mvn test -Dmaven.repo.local=/drone/.m2
       - echo "Build has been completed."
-      - mvn clean spring-boot:run
+services:
+   mysql:
+    image: mysql:5.6.27
+    environment:
+      - MYSQL_DATATABASE =GOOGLE_API
+      - MYSQL_USER = root
+      - MYSQL_PASSWORD = 1990
