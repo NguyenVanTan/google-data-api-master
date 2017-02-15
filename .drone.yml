@@ -8,9 +8,10 @@ build:
       - mvn clean install -Pcoverage -Dmaven.repo.local=/drone/.m2
       - echo "Build has been completed."
 services:
-   mysql:
+ database:
     image: mysql
     environment:
       - MYSQL_DATATABASE =GOOGLE_API
       - MYSQL_USER = root
       - MYSQL_PASSWORD = 1990
+    command: [ "--character-set-server=utf8mb4" ]
